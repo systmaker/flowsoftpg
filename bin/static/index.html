@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>FlowSoft - Productos</title>
+	</head>
+	
+	<body>
+		<h1>Productos</h1>
+
+		<form action="#" th:action="@{/addProducto}" th:object="${producto}" method="post">
+			<p>
+				Descripcion:<input type="text" name="descripcion" th:field="*{descripcion}" th:required="required"/>
+			</p>
+		
+			<p>
+				<!-- 	Estado:<input type="text" name="estado" th:field="*{estado}" /> 	 -->
+				Estado:
+				<select th:field="*{estado}">
+					<option value="AC">Activo</option>
+					<option value="IN">Inactivo</option>
+				</select>
+			</p>
+		
+			<p>
+				<input type="submit" value="Guardar" name="guardar"/>
+			</p>
+		</form>	
+	
+		<table>	
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Descripcion</th>
+					<th>Estado</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+		
+			<tbody th:each="producto :${productos}">
+				<tr>
+					<td><span th:text="${producto.id}"></span></td>
+					<td><span th:text="${producto.descripcion}"></span></td>
+					<!-- <td><span th:text="${producto.estado}"></span></td>  -->
+					<td th:switch = "${producto.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
+					<td><input type="submit" value="Eliminar" name="eliminar"/> <input type="submit" value="Editar" name="editar"/> </td>
+				</tr>
+			</tbody>
+		</table>
+			
+	</body>
+	
+</html>
