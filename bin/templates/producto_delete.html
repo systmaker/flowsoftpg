@@ -91,30 +91,25 @@
 				<!-- /top navigation -->
 
 				<!-- page content -->
-
-
-
-
-
-				<div class="right_col" role="main">
-					<div class="">
-						<div class="page-title">
-							<div class="title_left">
-								<h3>Productos</h3>
+				<form id="demo-form2" class="form-horizontal form-label-left" action="/delete">
+					<div class="right_col" role="main">
+						<div class="">
+							<div class="page-title">
+								<div class="title_left">
+									<h3>Productos</h3>
+								</div>
 							</div>
-						</div>
 
-						<div class="clearfix"></div>
-						<div class="row">
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<div class="x_panel">
-									<div class="x_title">
-										<h2>Eliminar Producto</h2>
-										<div class="clearfix"></div>
-									</div>
-									<div class="x_content">
-										<br />
-										<form id="demo-form2" class="form-horizontal form-label-left" action="/delete">
+							<div class="clearfix"></div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="x_panel">
+										<div class="x_title">
+											<h2>Eliminar Producto</h2>
+											<div class="clearfix"></div>
+										</div>
+										<div class="x_content">
+											<br />
 
 											<div class="form-group">
 												<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
@@ -138,34 +133,42 @@
 												<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 													<input type="hidden" name="id" th:value="${producto.id}" />
 													<a class="btn btn-default" type="button" th:href="@{'/'}">Cerrar</a>
-													<button class="btn btn-dark" type="submit">Guardar</button>
+													<!-- <button class="btn btn-dark" type="submit">Guardar</button>  -->
+													<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-sm">Eliminar</button>
 												</div>
 											</div>
-										</form>
+
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<!-- /page content -->
-
+										
+					<!-- Modal Eliminar -->
+					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel2">Confirmar Eliminación</h4>
+								</div>
+								<div class="modal-body">
+									<p>Dese Eliminar Este Registro ?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									<button type="submit" class="btn btn-dark">Aceptar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Modal -->
+ 				</form>
+ 				<!-- /page content -->
+ 	
 				<!-- footer content -->
 				<footer>
 					<div class="pull-right">
