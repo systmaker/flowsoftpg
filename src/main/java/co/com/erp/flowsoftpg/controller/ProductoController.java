@@ -48,10 +48,23 @@ public class ProductoController {
         return "redirect:/";
     }
     
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/producto_edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("producto", productoService.findById(id));
-        return "edit";
+        /*return "edit";*/
+        /*return "redirect:/";*/
+        return "producto_edit";
     }    
+    
+    @RequestMapping("/update")
+    public String update(@RequestParam Integer id, @RequestParam String descripcion, @RequestParam String estado) {
+        Producto producto = productoService.findById(id);
+        producto.setDescripcion(descripcion);
+        producto.setEstado(estado);
+        productoService.insert(producto);
+
+        /*return "redirect:/show/" + product.getId();*/
+        return "redirect:/";
+    }
     
 }
