@@ -9,20 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "Producto")
+@Table (name = "producto")
 public class Producto implements Serializable {
 	
 	private static final long serialVersionUID = 1865383594752290647L;
 	
 	@Id
 	@GeneratedValue
-	@Column (name = "Id")
+	@Column (name = "id")
 	private Integer id;
 	
-	@Column (name = "Descripcion")
+	@Column (name = "descripcion")
 	private String descripcion;
 	
-	@Column (name = "Estado")
+	@Column (name = "estado")
 	private String estado;
 	
 	public Producto(){
