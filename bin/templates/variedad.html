@@ -12,7 +12,7 @@
 		<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
 		<link href="/build/css/custom.min.css" rel="stylesheet" />
 
-		<title>FlowSoft ... Productos</title>
+		<title>FlowSoft ... Variedades</title>
 
 	</head>
 
@@ -110,84 +110,106 @@
 				<!-- /top navigation -->
 
 				<!-- page content -->
-				<form id="demo-form2" class="form-horizontal form-label-left" action="/delete">
-					<div class="right_col" role="main">
-						<div class="">
-							<div class="page-title">
-								<div class="title_left">
-									<h3>Productos</h3>
-								</div>
+				<div class="right_col" role="main">
+					<div class="">
+						<div class="page-title">
+							<div class="title_left">
+								<h3>Productos</h3>
 							</div>
+						</div>
 
-							<div class="clearfix"></div>
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="x_panel">
-										<div class="x_title">
-											<h2>Eliminar Producto</h2>
-											<div class="clearfix"></div>
+						<div class="clearfix"></div>
+
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="x_panel">
+									<div class="x_title">
+										<h2>Lista Productos</h2>
+										<div class="clearfix"></div>
+									</div>
+									<div class="x_content">
+
+										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
+										<button type="button" class="btn btn-dark">Buscar</button>
+										
+										<!-- Inicia Tabla -->
+										<div class="table-responsive">
+											<table class="table table-striped jambo_table bulk_action">
+												<thead>
+													<tr class="headings">
+														<th class="column-title">Id</th>
+														<th class="column-title">Descripcion</th>
+														<th class="column-title">Estado</th>
+														<th class="column-title">Opciones</th>
+													</tr>
+												</thead>
+
+												<tbody th:each="producto :${productos}">
+													<tr class="odd pointer">
+														<td class=" "><span th:text="${producto.id}"></span></td>
+														<td class=" "><span th:text="${producto.descripcion}"></span></td>
+														<td class=" " th:switch="${producto.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
+														<td class=" ">
+															<a type="button" class="btn btn-dark" th:href="@{'/producto_edit/' + ${producto.id}}">Editar</a>	
+															<a type="button" class="btn btn-danger" th:href="@{'/producto_delete/' + ${producto.id}}">Borrar</a>														
+															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
+														</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
-										<div class="x_content">
-											<br />
+										<!-- Termina Tabla -->
 
-											<div class="form-group">
-												<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
-												<div class="col-md-6 col-sm-6 col-xs-12">
-													<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${producto.descripcion}" th:required="required" disabled="disabled" />
+										<!-- Inicia Modal Crear -->
+										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addProducto}" th:object="${producto}" method="post">
+											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+												<div class="modal-dialog modal-lg">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">
+																<span aria-hidden="true">×</span>
+															</button>
+															<h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4>
+														</div>
+
+														<div class="modal-body">
+															<br />
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
+																</div>
+															</div>
+
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																	<select class="form-control" th:field="*{estado}">
+																		<option value="AC">Activo</option>
+																		<option value="IN">Inactivo</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+															<input type="submit" value="Guardar" name="guardar" class="btn btn-dark" />
+														</div>
+													</div>
 												</div>
 											</div>
-
-											<div class="form-group">
-												<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
-												<div class="col-md-6 col-sm-6 col-xs-12">
-													<select class="form-control" th:value="${producto.estado}" id="estado" name="estado" disabled="disabled">
-														<option th:selected="${producto.estado} == 'AC'" value="AC">Activo</option>
-														<option th:selected="${producto.estado} == 'IN'" value="IN">Inactivo</option>
-													</select>
-												</div>
-											</div>
-
-											<div class="ln_solid"></div>
-											<div class="form-group">
-												<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-													<input type="hidden" name="id" th:value="${producto.id}" />
-													<a class="btn btn-default" type="button" th:href="@{'/'}">Cerrar</a>
-													<!-- <button class="btn btn-dark" type="submit">Guardar</button>  -->
-													<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-sm">Eliminar</button>
-												</div>
-											</div>
-
-										</div>
+										</form>
+										<!-- Termina Modal Crear -->																			
+										
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-										
-					<!-- Modal Eliminar -->
-					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-									<h4 class="modal-title" id="myModalLabel2">Confirmar</h4>
-								</div>
-								<div class="modal-body">
-									<p>Desea Eliminar Este Registro ?</p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-									<button type="submit" class="btn btn-dark">Aceptar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /Modal -->
- 				</form>
- 				<!-- /page content -->
- 	
+				</div>
+				<!-- /page content -->
+
 				<!-- footer content -->
 				<footer>
 					<div class="pull-right">

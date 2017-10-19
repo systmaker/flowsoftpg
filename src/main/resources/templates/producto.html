@@ -43,12 +43,19 @@
 								<h3>Produccion</h3>
 								<ul class="nav side-menu">
 									<li>
-										<a><i class="fa fa-home"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<a><i class="fa fa-cubes"></i> Maestros <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li><a th:href="@{'/'}">Productos</a></li>
 											<li><a th:href="@{'/color'}">Colores</a></li>
-											<li><a href="index3.html">Variedades</a></li>
+											<li><a th:href="@{'/variedad'}">Variedades</a></li>
 										</ul>
+									</li>
+									<li>
+										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
+											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>
+										</ul>										
 									</li>
 								</ul>
 							</div>
@@ -57,14 +64,26 @@
 								<h3>Seguridad</h3>
 								<ul class="nav side-menu">
 									<li>
-										<a><i class="fa fa-bug"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<a><i class="fa fa-unlock-alt"></i> Maestros <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="e_commerce.html">Usuarios</a></li>
-											<li><a href="projects.html">Perfiles</a></li>
+											<li><a href="usuario.html">Usuarios</a></li>
 										</ul>
 									</li>
 								</ul>
 							</div>
+							
+							<div class="menu_section">
+								<h3>Reportes</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-bar-chart"></i> Consultas <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a href="e_commerce.html">Consultar Siembra</a></li>
+											<li><a href="projects.html">Consultar Proyección</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>							
 						</div>
 						<!-- /sidebar menu -->
 
