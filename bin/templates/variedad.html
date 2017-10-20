@@ -132,7 +132,7 @@
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
 										<button type="button" class="btn btn-dark">Buscar</button>
 										
-										<!-- Inicia Tabla -->
+										<!-- Inicia Tabla -->										
 										<div class="table-responsive">
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
@@ -156,17 +156,17 @@
 														<td class=" ">
 															<a type="button" class="btn btn-dark" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
 															<a type="button" class="btn btn-danger" th:href="@{'/variedad_delete/' + ${variedad.id}}">Borrar</a>														
-															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
+															 <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  
 														</td>
 													</tr>
 												</tbody>
 											</table>
-										</div>
+										</div>										 
 										<!-- Termina Tabla -->
 										
 										<!-- Inicia Modal Crear -->
-										<!-- 
-										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addProducto}" th:object="${producto}" method="post">
+										
+										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addVariedad}" th:object="${variedad}" method="post">  
 											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
 												<div class="modal-dialog modal-lg">
 													<div class="modal-content">
@@ -174,25 +174,62 @@
 															<button type="button" class="close" data-dismiss="modal">
 																<span aria-hidden="true">×</span>
 															</button>
-															<h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4>
+															<h4 class="modal-title" id="myModalLabel">Nueva Variedad</h4>
 														</div>
 
 														<div class="modal-body">
 															<br />
+															
+															
+															
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12">Producto</label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+									 													
+																	<select class="form-control" th:field="*{producto.id}">
+  																		<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Wireframe</option>
+																	</select>
+																	
+																	
+									 
+																</div>
+															</div>
+															
+															
+															
+															
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12">Color</label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+									<!-- 																
+																	<select class="form-control" th:field="*{estado}">
+																		<option value="AC">Activo</option>
+																		<option value="IN">Inactivo</option>
+																	</select>
+									 -->
+																</div>
+															</div>																														
+															
+															
+															
+															
+															
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
-																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
+									<!-- 								<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />	 -->
 																</div>
 															</div>
 
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
+										<!-- 
 																	<select class="form-control" th:field="*{estado}">
 																		<option value="AC">Activo</option>
 																		<option value="IN">Inactivo</option>
 																	</select>
+									  -->
 																</div>
 															</div>
 														</div>
@@ -204,8 +241,8 @@
 													</div>
 												</div>
 											</div>
-										</form>
-										 -->
+										</form>  
+										 
 										<!-- Termina Modal Crear -->																			
 										
 									</div>
