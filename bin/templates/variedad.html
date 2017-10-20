@@ -150,8 +150,8 @@
 													<tr class="odd pointer">
 														<td class=" "><span th:text="${variedad.id}"></span></td>
 														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
+														<td class=" "><span th:text="${variedad.producto.descripcion}"></span></td>
+														<td class=" "><span th:text="${variedad.color.descripcion}"></span></td>
 														<td class=" " th:switch="${variedad.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
 															<a type="button" class="btn btn-dark" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
