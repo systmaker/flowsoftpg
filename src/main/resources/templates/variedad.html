@@ -156,7 +156,7 @@
 														<td class=" ">
 															<a type="button" class="btn btn-dark" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
 															<a type="button" class="btn btn-danger" th:href="@{'/variedad_delete/' + ${variedad.id}}">Borrar</a>														
-															 <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  
+															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->  
 														</td>
 													</tr>
 												</tbody>
@@ -178,35 +178,24 @@
 														</div>
 
 														<div class="modal-body">
-															<br />
-															
-															
-															
+															<br />															
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Producto</label>
-																<div class="col-md-6 col-sm-6 col-xs-12">
-									 													
+																<div class="col-md-6 col-sm-6 col-xs-12">									 													
 																	<select class="form-control" th:field="*{producto.id}">
-  																		<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Wireframe</option>
-																	</select>
-																	
-																	
-									 
+  																		<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Producto</option>
+																	</select>																																											
 																</div>
 															</div>
-															
-															
+																														
 															
 															
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Color</label>
-																<div class="col-md-6 col-sm-6 col-xs-12">
-									<!-- 																
-																	<select class="form-control" th:field="*{estado}">
-																		<option value="AC">Activo</option>
-																		<option value="IN">Inactivo</option>
-																	</select>
-									 -->
+																<div class="col-md-6 col-sm-6 col-xs-12">									 															
+																	<select class="form-control" th:field="*{color.id}">
+  																		<option th:each="color :${colores}" th:value="${color.id}" th:text="${color.descripcion}">Color</option>
+																	</select>									 
 																</div>
 															</div>																														
 															
@@ -217,19 +206,19 @@
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
-									<!-- 								<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />	 -->
+																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
 																</div>
 															</div>
 
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
-										<!-- 
+										
 																	<select class="form-control" th:field="*{estado}">
 																		<option value="AC">Activo</option>
 																		<option value="IN">Inactivo</option>
 																	</select>
-									  -->
+									  
 																</div>
 															</div>
 														</div>
