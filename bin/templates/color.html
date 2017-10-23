@@ -151,8 +151,8 @@
 														<td class=" "><span th:text="${color.descripcion}"></span></td>
 														<td class=" " th:switch="${color.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
-															<a type="button" class="btn btn-dark" th:href="@{'/color_edit/' + ${color.id}}">Editar</a>	
-															<a type="button" class="btn btn-danger" th:href="@{'/color_delete/' + ${color.id}}">Borrar</a>														
+															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/color_edit/' + ${color.id}}">Editar</a>	
+															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/color_delete/' + ${color.id}}">Borrar</a>														
 															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
 														</td>
 													</tr>

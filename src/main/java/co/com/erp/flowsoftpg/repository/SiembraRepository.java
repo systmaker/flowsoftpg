@@ -5,9 +5,9 @@ import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import co.com.erp.flowsoftpg.entity.Color;
+import co.com.erp.flowsoftpg.entity.Siembra;
 
 @Repository
-public interface ColorRepository extends JpaRepository <Color, Serializable> {
+public interface SiembraRepository extends JpaRepository<Siembra, Serializable> {
 
 }
