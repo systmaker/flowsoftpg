@@ -5,8 +5,7 @@ public class Pais {
 	private Integer id;
 	private String codigo;
 	private String descripcion;
-	private String estado;
-	
+	private String estado;	
 	
 	public Integer getId() {
 		return id;
