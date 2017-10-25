@@ -1,11 +1,38 @@
 package co.com.erp.flowsoftpg.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.repository.cdi.Eager;
+
+@Entity
+@Eager
+@Table (name = "invernadero")
 public class Invernadero {
 	
+	@Id
+	@GeneratedValue
+	@Column (name="id")
 	private Integer id;
+	
+	@Column (name="descripcion")
 	private String descripcion;
+	
+	@Column (name="estado")
 	private String estado;
+	
+	@ManyToOne
+	@JoinColumn (name = "idlocalizacion")
 	private Localizacion localizacion;
+	
+	public Invernadero(){
+		super();
+	}
 	
 	public Integer getId() {
 		return id;
