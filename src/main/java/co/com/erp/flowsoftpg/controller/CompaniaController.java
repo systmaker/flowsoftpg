@@ -18,4 +18,5 @@ public class CompaniaController {
 		model.addAttribute("compania", companiaService.listAll());
 		return "compania";
 	}
+	
 }
