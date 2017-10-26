@@ -131,10 +131,123 @@
 									</div>
 									<div class="x_content">
 
+										<!-- 
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
 										<button type="button" class="btn btn-dark">Buscar</button>
+										 -->
+														<!-- 
+														<div class="x_panel">
+										              <div class="x_content">
+                										<div class="row"> 
+															 -->		
+										<!-- 										
+																				
+                  						<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                  							<label> Compañía <span class="required">*</span></label>
+                  							<select class="form-control" required="required">
+												<option value="">- Seleccione -</option>
+  												<option th:each="compania :${companias}" th:value="${compania.id}" th:text="${compania.descripcion}">Compania</option>
+											</select>
+                  						</div>
+
+                  						<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    						<label>Localización <span class="required">*</span></label>																			 												
+												<select class="form-control" required="required" >
+													<option value="">- Seleccione -</option>
+  													<option th:each="localizacion :${localizaciones}" th:value="${localizacion.id}" th:text="${localizacion.descripcion}">Localizacion</option>
+												</select>
+                  						</div>
+
+                  						<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    						<label>Invernadero <span class="required">*</span></label>																				 													
+												<select class="form-control" required="required">
+													<option value="">- Seleccione -</option>
+  													<option th:each="invernadero :${invernaderos}" th:value="${invernadero.id}" th:text="${invernadero.descripcion}">Invernadero</option>
+												</select>												
+                  						</div>
+										
+										 
+
+                    						<button type="button" class="btn btn-dark">Consultar</button>
+
+										  -->
+										 
+										<!-- 
+										 </div>  
+										</div>
+										
+										</div>
+										 -->
+										 
+										 
+										 <div class="form-group">
+										 
+										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 		<label> Compañía </label>
+										 	</div>
+										 
+										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">										 		
+										 		<select class="form-control">
+										 			<option> - Seleccionar - </option>
+										 		</select>
+										 	</div>
+										 	
+										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 		<label> Localización </label>
+										 	</div>										 	
+										 	
+										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+										 		<select class="form-control">
+											 		<option> - Seleccionar - </option>
+											 	</select>
+										 	</div>
+										 	
+										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 		<label> Invernadero </label>
+										 	</div>												 	
+										 	
+										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+										 		<select class="form-control">
+										 			<option> - Seleccionar - </option>
+										 		</select>
+										 	</div>
+										 	
+										 	<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 		<button type="button" class="btn btn-dark">Consultar</button>
+										 	</div>
+										 											 
+										 </div>
+										 
+										 
+										 
+										 
+										 			
+										
+										
+															
+									
+										 
+										
+
+										
+										
+
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<!-- 
 										
 										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addSiembra}" th:object="${siembra}" method="post">   
+										
 										<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Compañía <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 col-xs-12">									 													
@@ -168,21 +281,24 @@
 																			
 										</form>
 										
+										 -->
+										
 										<!-- Inicia Tabla -->	
-										<!-- 									
+										 									
 										<div class="table-responsive">
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
 													<tr class="headings">
 														<th class="column-title">Id</th>
-														<th class="column-title">Descripcion</th>
-														<th class="column-title">Producto</th>
-														<th class="column-title">Color</th>
+														<th class="column-title">Nave</th>
+														<th class="column-title">Cama</th>
+														<th class="column-title">M2 Ocupados</th>
+														<th class="column-title">M2 Disponibles</th>
 														<th class="column-title">Estado</th>
 														<th class="column-title">Opciones</th>
 													</tr>
 												</thead>
-
+												<!-- 
 												<tbody th:each="variedad :${variedades}">
 													<tr class="odd pointer">
 														<td class=" "><span th:text="${variedad.id}"></span></td>
@@ -199,9 +315,26 @@
 														</td>
 													</tr>
 												</tbody>
+												 -->
+												
+												<tbody>
+													<tr class="odd pointer">
+														<td class=" "><span></span></td>
+														<td class=" "><span></span></td>
+														<td class=" "><span></span></td>
+														<td class=" "><span></span></td>
+														<td class=" "><span></span></td>
+														<td class=" "><span></span></td>
+														<td class=" ">															 
+															<a type="button" class="btn btn-dark btn-xs" >Sembrar</a>																													  
+														</td>
+													</tr>
+												</tbody>												
+												
+												
 											</table>
 										</div>	
-										 -->									 
+																			 
 										<!-- Termina Tabla -->
 										
 										<!-- Inicia Modal Crear -->

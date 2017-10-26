@@ -31,13 +31,13 @@ public class Localizacion implements Serializable {
 	private String direccion;
 	
 	@Column (name = "telefono1")
-	private Integer telefono1;
+	private String telefono1;
 	
 	@Column (name = "telefono2")
-	private Integer telefono2;
+	private String telefono2;
 	
 	@Column (name = "celular")
-	private Integer celular;
+	private String celular;
 	
 	@Column (name = "email")
 	private String email;
@@ -81,27 +81,27 @@ public class Localizacion implements Serializable {
 		this.direccion = direccion;
 	}
 	
-	public Integer getTelefono1() {
+	public String getTelefono1() {
 		return telefono1;
 	}
 	
-	public void setTelefono1(Integer telefono1) {
+	public void setTelefono1(String telefono1) {
 		this.telefono1 = telefono1;
 	}
 	
-	public Integer getTelefono2() {
+	public String getTelefono2() {
 		return telefono2;
 	}
 	
-	public void setTelefono2(Integer telefono2) {
+	public void setTelefono2(String telefono2) {
 		this.telefono2 = telefono2;
 	}
 	
-	public Integer getCelular() {
+	public String getCelular() {
 		return celular;
 	}
 	
-	public void setCelular(Integer celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 	
