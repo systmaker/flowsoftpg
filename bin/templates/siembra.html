@@ -135,11 +135,8 @@
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
 										<button type="button" class="btn btn-dark">Buscar</button>
 										 -->
-														<!-- 
-														<div class="x_panel">
-										              <div class="x_content">
-                										<div class="row"> 
-															 -->		
+
+	
 										<!-- 										
 																				
                   						<div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -165,20 +162,12 @@
   													<option th:each="invernadero :${invernaderos}" th:value="${invernadero.id}" th:text="${invernadero.descripcion}">Invernadero</option>
 												</select>												
                   						</div>
-										
-										 
-
+																				 
                     						<button type="button" class="btn btn-dark">Consultar</button>
 
 										  -->
 										 
-										<!-- 
-										 </div>  
-										</div>
-										
-										</div>
-										 -->
-										 
+										 <div class="x_panel">
 										 
 										 <div class="form-group">
 										 
@@ -188,7 +177,8 @@
 										 
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">										 		
 										 		<select class="form-control">
-										 			<option> - Seleccionar - </option>
+													<option value="">- Seleccione -</option>
+  													<option th:each="compania :${companias}" th:value="${compania.id}" th:text="${compania.descripcion}">Compania</option>										 			
 										 		</select>
 										 	</div>
 										 	
@@ -198,7 +188,8 @@
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
 										 		<select class="form-control">
-											 		<option> - Seleccionar - </option>
+													<option value="">- Seleccione -</option>
+  													<option th:each="localizacion :${localizaciones}" th:value="${localizacion.id}" th:text="${localizacion.descripcion}">Localizacion</option>											 		
 											 	</select>
 										 	</div>
 										 	
@@ -208,7 +199,8 @@
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
 										 		<select class="form-control">
-										 			<option> - Seleccionar - </option>
+													<option value="">- Seleccione -</option>
+  													<option th:each="invernadero :${invernaderos}" th:value="${invernadero.id}" th:text="${invernadero.descripcion}">Invernadero</option>										 			
 										 		</select>
 										 	</div>
 										 	
@@ -218,7 +210,7 @@
 										 											 
 										 </div>
 										 
-										 
+										 </div>
 										 
 										 
 										 			
