@@ -12,7 +12,7 @@
 		<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
 		<link href="/build/css/custom.min.css" rel="stylesheet" />
 
-		<title>FlowSoft ... Siembras</title>
+		<title>FlowSoft ... Creación de Siembras</title>
 
 	</head>
 
@@ -114,7 +114,7 @@
 					<div class="">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Variedades</h3>
+								<h3>Siembras</h3>
 							</div>
 						</div>
 
@@ -124,7 +124,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2>Lista Variedades</h2>
+										<h2>Creación de Siembras</h2>
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
@@ -132,7 +132,20 @@
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
 										<button type="button" class="btn btn-dark">Buscar</button>
 										
-										<!-- Inicia Tabla -->										
+										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addSiembra}" th:object="${siembra}" method="post"> 
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Compañía <span class="required">*</span></label>
+											<div class="col-md-6 col-sm-6 col-xs-12">									 													
+												<select class="form-control" th:field="*{compania.id}" required="required">
+													<option value="">- Seleccione -</option>
+  													<option th:each="compania :${companias}" th:value="${compania.id}" th:text="${compania.descripcion}">Compania</option>
+												</select>																																											
+											</div>
+										</div>
+										</form>
+										
+										<!-- Inicia Tabla -->	
+										<!-- 									
 										<div class="table-responsive">
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
@@ -157,17 +170,18 @@
 															 
 															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
 															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/variedad_delete/' + ${variedad.id}}">Borrar</a>														
-															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->  
+															<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>   
 															   
 														</td>
 													</tr>
 												</tbody>
 											</table>
-										</div>										 
+										</div>	
+										 -->									 
 										<!-- Termina Tabla -->
 										
 										<!-- Inicia Modal Crear -->
-										
+										<!-- 
 										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addVariedad}" th:object="${variedad}" method="post">  
 											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
 												<div class="modal-dialog modal-lg">
@@ -229,7 +243,7 @@
 												</div>
 											</div>
 										</form>  
-										 
+										  -->
 										<!-- Termina Modal Crear -->																			
 										
 									</div>

@@ -1,5 +1,7 @@
 package co.com.erp.flowsoftpg.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +15,10 @@ import org.springframework.data.repository.cdi.Eager;
 @Entity
 @Eager
 @Table (name = "invernadero")
-public class Invernadero {
+public class Invernadero implements Serializable {
 	
+	private static final long serialVersionUID = 4414247637398601943L;
+
 	@Id
 	@GeneratedValue
 	@Column (name="id")

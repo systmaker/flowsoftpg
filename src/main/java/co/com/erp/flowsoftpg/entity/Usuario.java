@@ -1,18 +1,55 @@
 package co.com.erp.flowsoftpg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Usuario {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.data.repository.cdi.Eager;
+
+@Entity
+@Eager
+@Table (name = "usuario")
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2074068063426909959L;
 	
+	@Id
+	@GeneratedValue
+	@Column (name = "id")
 	private Integer id;
+	
+	@Column (name = "codigo")
 	private String codigo;
+	
+	@Column (name = "nombre")
 	private String nombre;
+	
+	@Column (name = "apellido")
 	private String apellido;
+	
+	@Column (name = "cargo")
 	private String cargo;
+	
+	@Column (name = "clave")
 	private String clave;
+	
+	@Column (name = "fecha_cad")
 	private Date fecha_cad;
+	
+	@Column (name = "email")
 	private String email;
+	
+	@Column (name = "estado")
 	private String estado;
+	
+	public Usuario(){
+		super();
+	}
 	
 	public Integer getId() {
 		return id;

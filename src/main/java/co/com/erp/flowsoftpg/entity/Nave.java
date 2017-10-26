@@ -1,13 +1,48 @@
 package co.com.erp.flowsoftpg.entity;
 
-public class Nave {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.repository.cdi.Eager;
+
+@Entity
+@Eager
+@Table (name = "nave")
+public class Nave implements Serializable {
 	
+	private static final long serialVersionUID = -3615486528347086556L;
+	
+	@Id
+	@GeneratedValue
+	@Column (name = "id")	
 	private Integer id;
+	
+	@Column (name = "descripcion")	
 	private String descripcion;
+	
+	@Column (name = "cama_ini")	
 	private Integer cama_ini;
+	
+	@Column (name = "cama_fin")	
 	private Integer cama_fin;
+	
+	@Column (name = "estado")	
 	private String estado;
+	
+	@ManyToOne
+	@JoinColumn (name="idinvernadero")
 	private Invernadero invernadero;
+	
+	public Nave(){
+		super();
+	}
 	
 	public Integer getId() {
 		return id;
