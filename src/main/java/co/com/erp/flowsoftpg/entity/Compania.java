@@ -14,7 +14,7 @@ import org.springframework.data.repository.cdi.Eager;
 
 @Entity
 @Eager
-@Table (name = "ciudad")
+@Table (name = "compania")
 public class Compania implements Serializable {
 	
 	private static final long serialVersionUID = -1241498389494969645L;
