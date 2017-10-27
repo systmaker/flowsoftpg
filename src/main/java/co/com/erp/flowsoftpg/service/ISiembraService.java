@@ -14,6 +14,6 @@ public interface ISiembraService {
 	
 	void insert (Siembra departamento);
 	
-	void delete (Integer id);
+	void delete (Integer id);	
 
 }

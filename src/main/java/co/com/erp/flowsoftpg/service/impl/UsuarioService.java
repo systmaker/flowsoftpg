@@ -15,27 +15,27 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Usuario findById(Integer id) {
-		return null;
+		return usuarioRepository.findOne(id);
 	}
 
 	@Override
 	public List<Usuario> listAll() {
-		return null;
+		return usuarioRepository.findAll();
 	}
 
 	@Override
 	public void update(Usuario usuario) {
-		
+		usuarioRepository.save(usuario);
 	}
 
 	@Override
 	public void insert(Usuario usuario) {
-		
+		usuarioRepository.save(usuario);
 	}
 
 	@Override
 	public void delete(Integer id) {
-		
+		usuarioRepository.delete(id);
 	}
 
 }

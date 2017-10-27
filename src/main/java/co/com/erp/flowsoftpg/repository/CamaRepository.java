@@ -9,5 +9,5 @@ import co.com.erp.flowsoftpg.entity.Cama;
 
 @Repository
 public interface CamaRepository extends JpaRepository<Cama, Serializable> {
-
+	
 }

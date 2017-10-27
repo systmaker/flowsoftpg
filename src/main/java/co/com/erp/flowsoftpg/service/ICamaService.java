@@ -14,6 +14,6 @@ public interface ICamaService {
 	
 	void insert (Cama cama);
 	
-	void delete (Integer id);	
+	void delete (Integer id);		
 
 }
