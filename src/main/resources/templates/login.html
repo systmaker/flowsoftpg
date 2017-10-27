@@ -12,7 +12,6 @@
 		<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
 		<link href="/vendors/animate.css/animate.min.css" rel="stylesheet" />
 		<link href="/build/css/custom.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
 		
 		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
     
@@ -31,13 +30,14 @@
 						<form action='index.html' id="formaLogin">
 							<h1>Login</h1>
 							<div>
-								<input type="text" class="form-control" placeholder="Usuario" required="" id="usr" />
+								<input type="text" class="form-control" placeholder="Usuario" th:required="required" />
 							</div>
 							<div>
-								<input type="password" class="form-control" placeholder="Contraseña" required="" id="pass" />
+								<input type="password" class="form-control" placeholder="Contraseña" th:required="required" />
 							</div>
 							<div>
-								<a class="btn btn-default submit" onclick="validarForm()">Ingresar</a>
+								<a class="btn btn-default submit">Ingresar</a>
+								<!-- <a class="btn btn-default submit"> <input type="submit" value="Ingresar" name="ingresar" class="btn btn-default submit" /> </a> -->
 							</div>	
 												
 							<div class="clearfix"></div>
@@ -58,49 +58,7 @@
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="/vendors/fastclick/lib/fastclick.js"></script>	
 		<script src="/vendors/nprogress/nprogress.js"></script>    
-		<script src="/build/js/custom.min.js"></script>
-		
-		<!-- UIkit CSS -->
-		
-
-		<!-- jQuery is required -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		
-		<!-- UIkit JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
-		
-		<script>
-			function validarForm () {
-
-				var idUsr = $('#usr').val(); 
-				var pass = 	$('#pass').val();
-				
-				var error = false;
-				var mensajeError = "";
-
-				if (!idUsr) {
-					
-					mensajeError = "Usuario no puede ser vacio";
-				    UIkit.modal.alert(mensajeError).then(function() {
-						console.log('Alert closed.')
-		            });
-				    return;
-				}
-				
-				if (!pass) {
-					
-				    mensajeError = "Password no puede ser vacio";
-				    UIkit.modal.alert(mensajeError).then(function() {
-						console.log('Alert closed.')
-		            });
-				    return;
-				}
-				
-				//Aqui se supone que si todo está bien debería enviar el formulario o llamar un servicio de Login.
-			}		
-		</script>
-		      
+		<script src="/build/js/custom.min.js"></script>				      
 	</body>  
 	
 </html>

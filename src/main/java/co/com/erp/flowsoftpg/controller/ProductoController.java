@@ -3,13 +3,13 @@ package co.com.erp.flowsoftpg.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+/*import org.springframework.web.bind.annotation.GetMapping;*/
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+/*import org.springframework.web.servlet.ModelAndView;*/
 
 import co.com.erp.flowsoftpg.entity.Producto;
 import co.com.erp.flowsoftpg.service.IProductoService;
@@ -17,11 +17,12 @@ import co.com.erp.flowsoftpg.service.IProductoService;
 @Controller
 public class ProductoController {
 	
-	private static final String INDEX_VIEW = "producto";
+	/*private static final String INDEX_VIEW = "producto";*/
 	
 	@Autowired
 	private IProductoService productoService;
 	
+	/*
 	@GetMapping ("/")
 	public ModelAndView init (){
 		ModelAndView view = new ModelAndView (INDEX_VIEW);
@@ -29,6 +30,15 @@ public class ProductoController {
 		view.addObject("producto", new Producto());
 		return view;
 	}
+	*/
+	
+    @RequestMapping("/producto")
+    public String color(Model model) {
+        model.addAttribute("productos", productoService.listAll());
+        return "producto";
+    }
+	
+	
 	
 	@PostMapping("/addProducto")
 	public String addProducto (@ModelAttribute ("producto") Producto producto){
