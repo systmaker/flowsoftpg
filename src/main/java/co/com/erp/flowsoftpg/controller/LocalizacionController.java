@@ -15,7 +15,7 @@ public class LocalizacionController {
 	
 	@RequestMapping("/localizacion")
 	public String localizacion (Model model){
-		model.addAttribute("localizacion", localizacionService.listAll());
+		model.addAttribute("localizaciones", localizacionService.listAll());
 		return "localizacion";
 	}
 

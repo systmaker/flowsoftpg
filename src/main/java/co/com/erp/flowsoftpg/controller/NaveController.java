@@ -15,7 +15,7 @@ public class NaveController {
 	
 	@RequestMapping("/nave")
 	public String nave (Model model){
-		model.addAttribute("nave", naveService.listAll());
+		model.addAttribute("naves", naveService.listAll());
 		return "nave";
 	}
 
