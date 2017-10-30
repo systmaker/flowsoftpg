@@ -16,4 +16,6 @@ public interface ILocalizacionService {
 	
 	void delete (Integer id);
 
+	List<Localizacion> findLocalizacionesByCompania(Integer id);
+
 }

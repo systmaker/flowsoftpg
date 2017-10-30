@@ -33,7 +33,7 @@ public class ProductoController {
 	*/
 	
     @RequestMapping("/producto")
-    public String color(Model model) {
+    public String producto(Model model) {
         model.addAttribute("productos", productoService.listAll());
         return "producto";
     }

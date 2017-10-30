@@ -40,4 +40,8 @@ public class LocalizacionService implements ILocalizacionService {
 		localizacionRepository.delete(id);
 	}
 
+	@Override
+	public List<Localizacion> findLocalizacionesByCompania(Integer id) {
+		return localizacionRepository.findLocalizacionesByCompania(id);
+	}
 }

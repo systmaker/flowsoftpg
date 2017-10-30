@@ -141,24 +141,25 @@
 										 <div class="x_panel">
 										 
 										 <div class="form-group">
-										 
+										 <form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/siembra}" th:object="${siembra}" method="get">
 										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
 										 		<label> Compañía </label>
 										 	</div>
 										 
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">										 		
-										 		<select class="form-control">
+										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.compania.id}" class="form-control">
 													<option value="">- Seleccione -</option>
   													<option th:each="compania :${companias}" th:value="${compania.id}" th:text="${compania.descripcion}">Compania</option>										 			
 										 		</select>
 										 	</div>
+										 	
 										 	
 										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
 										 		<label> Localización </label>
 										 	</div>										 	
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
-										 		<select class="form-control">
+										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.id}" class="form-control">
 													<option value="">- Seleccione -</option>
   													<option th:each="localizacion :${localizaciones}" th:value="${localizacion.id}" th:text="${localizacion.descripcion}">Localizacion</option>											 		
 											 	</select>
@@ -169,16 +170,17 @@
 										 	</div>												 	
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
-										 		<select class="form-control">
+										 		<select th:field="*{cama.nave.invernadero.id}" class="form-control">
 													<option value="">- Seleccione -</option>
   													<option th:each="invernadero :${invernaderos}" th:value="${invernadero.id}" th:text="${invernadero.descripcion}">Invernadero</option>										 			
 										 		</select>
 										 	</div>
-										 	
+										 	 
+										 	 
 										 	<div class="col-md-3 col-sm-12 col-xs-12 form-group">
-										 		<button type="button" class="btn btn-dark">Consultar</button>
+										 		<button type="submit" class="btn btn-dark">Consultar</button>
 										 	</div>
-										 											 
+										</form>										 											 
 										 </div>
 										 
 										 </div>
@@ -252,34 +254,36 @@
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
 													<tr class="headings">
-														<th class="column-title">Id</th>
+														<th class="column-title">Localización</th>
+														<th class="column-title">Invernadero</th>
 														<th class="column-title">Nave</th>
-														<th class="column-title">Cama</th>
-														<th class="column-title">M2 Ocupados</th>
+														<th class="column-title">Nro Cama</th>
 														<th class="column-title">M2 Disponibles</th>
 														<th class="column-title">Estado</th>
 														<th class="column-title">Opciones</th>
 													</tr>
 												</thead>
-												<!-- 
-												<tbody th:each="variedad :${variedades}">
+												
+												<tbody th:each="cama :${camas}">
 													<tr class="odd pointer">
-														<td class=" "><span th:text="${variedad.id}"></span></td>
-														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.producto.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.color.descripcion}"></span></td>
-														<td class=" " th:switch="${variedad.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
+														<td class=" "><span th:text="${cama.nave.invernadero.localizacion.descripcion}"></span></td>
+														<td class=" "><span th:text="${cama.nave.invernadero.descripcion}"></span></td>
+														<td class=" "><span th:text="${cama.nave.descripcion}"></span></td>
+														<td class=" "><span th:text="${cama.nrocama}"></span></td>
+														<td class=" "><span th:text="${cama.metros_tot}"></span></td>
+														<td class=" " th:switch="${cama.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
-															 
+															<a type="button" class="btn btn-dark btn-xs" >Sembrar</a>
+															 <!-- 
 															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
 															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/variedad_delete/' + ${variedad.id}}">Borrar</a>														
 															<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>   
-															   
+															 -->
 														</td>
 													</tr>
 												</tbody>
-												 -->
-												
+												 
+												<!-- 
 												<tbody>
 													<tr class="odd pointer">
 														<td class=" "><span></span></td>
@@ -293,12 +297,15 @@
 														</td>
 													</tr>
 												</tbody>												
-												
+												 -->
 												
 											</table>
 										</div>	
 																			 
 										<!-- Termina Tabla -->
+										
+										
+										
 										
 										<!-- Inicia Modal Crear -->
 										<!-- 

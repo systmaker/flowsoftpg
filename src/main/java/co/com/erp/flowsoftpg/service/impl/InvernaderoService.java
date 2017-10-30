@@ -40,4 +40,9 @@ public class InvernaderoService implements IInvernaderoService {
 		invernaderoRepository.delete(id);
 	}
 
+	@Override
+	public List<Invernadero> findInvernaderosByLocalizacion(Integer id) {
+		return invernaderoRepository.findInvernaderosByLocalizacion(id);
+	}
+
 }

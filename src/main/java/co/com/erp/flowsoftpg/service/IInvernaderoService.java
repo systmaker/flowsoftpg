@@ -15,5 +15,7 @@ public interface IInvernaderoService {
 	void insert (Invernadero invernadero);
 	
 	void delete (Integer id);
+	
+	List<Invernadero> findInvernaderosByLocalizacion(Integer id);
 
 }
