@@ -14,6 +14,8 @@ public interface ICamaService {
 	
 	void insert (Cama cama);
 	
-	void delete (Integer id);		
+	void delete (Integer id);	
+	
+	List<Cama> findCamasByInvernadero(Integer id);
 
 }

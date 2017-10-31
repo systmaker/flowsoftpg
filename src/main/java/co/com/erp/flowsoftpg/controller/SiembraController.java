@@ -29,10 +29,10 @@ public class SiembraController {
 	@Autowired
 	private IInvernaderoService invernaderoService;
 	
-	/*
+	
 	@Autowired
 	private ICamaService camaService;
-	*/
+	
 	
 	@RequestMapping("/siembra")
 	public String siembra(@ModelAttribute("siembra") Siembra siembra, Model model) {
@@ -40,10 +40,13 @@ public class SiembraController {
 		if (siembra.getCama() != null) {
 			model.addAttribute("localizaciones", localizacionService.findLocalizacionesByCompania(siembra.getCama().getNave().getInvernadero().getLocalizacion().getCompania().getId()));
 			model.addAttribute("invernaderos", invernaderoService.findInvernaderosByLocalizacion(siembra.getCama().getNave().getInvernadero().getLocalizacion().getId()));
+			model.addAttribute("camas", camaService.findCamasByInvernadero(siembra.getCama().getNave().getInvernadero().getId()));
 		}
 						
 		/*model.addAttribute("invernaderos", invernaderoService.listAll());*/
 		/*model.addAttribute("camas", camaService.listAll());*/
+		
+		
 		return "siembra";
 	}
 

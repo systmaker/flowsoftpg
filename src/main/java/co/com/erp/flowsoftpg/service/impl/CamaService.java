@@ -40,4 +40,9 @@ public class CamaService implements ICamaService {
 		camaRepository.delete(id);
 	}
 
+	@Override
+	public List<Cama> findCamasByInvernadero(Integer id) {
+		return camaRepository.findCamasByInvernadero(id);
+	}
+
 }

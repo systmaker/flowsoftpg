@@ -147,7 +147,7 @@
 										 	</div>
 										 
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">										 		
-										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.compania.id}" class="form-control">
+										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.compania.id}" class="form-control" required="required">
 													<option value="">- Seleccione -</option>
   													<option th:each="compania :${companias}" th:value="${compania.id}" th:text="${compania.descripcion}">Compania</option>										 			
 										 		</select>
@@ -159,7 +159,7 @@
 										 	</div>										 	
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
-										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.id}" class="form-control">
+										 		<select onchange="this.form.submit()" th:field="*{cama.nave.invernadero.localizacion.id}" class="form-control" required="required">
 													<option value="">- Seleccione -</option>
   													<option th:each="localizacion :${localizaciones}" th:value="${localizacion.id}" th:text="${localizacion.descripcion}">Localizacion</option>											 		
 											 	</select>
@@ -170,7 +170,7 @@
 										 	</div>												 	
 										 	
 										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
-										 		<select th:field="*{cama.nave.invernadero.id}" class="form-control">
+										 		<select th:field="*{cama.nave.invernadero.id}" class="form-control" required="required">
 													<option value="">- Seleccione -</option>
   													<option th:each="invernadero :${invernaderos}" th:value="${invernadero.id}" th:text="${invernadero.descripcion}">Invernadero</option>										 			
 										 		</select>
