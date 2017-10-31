@@ -3,8 +3,11 @@ package co.com.erp.flowsoftpg.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.com.erp.flowsoftpg.entity.Pais;
 import co.com.erp.flowsoftpg.service.IPaisService;
 
 @Controller
@@ -14,9 +17,15 @@ public class PaisController {
 	private IPaisService paisService;
 	
 	@RequestMapping("/pais")
-	public String pais(Model model){
-		model.addAttribute("pais", paisService.listAll());
+	public String pais(@ModelAttribute ("pais") Pais pais, Model model){
+		model.addAttribute("paises", paisService.listAll());
 		return "pais";
 	}
+	
+	@PostMapping("/addPais")
+	public String addPais (@ModelAttribute ("pais") Pais pais){
+		paisService.insert(pais);
+		return "redirect:/pais";
+	}	
 
 }

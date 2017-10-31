@@ -33,17 +33,15 @@ public class ProductoController {
 	*/
 	
     @RequestMapping("/producto")
-    public String producto(Model model) {
+    public String producto(@ModelAttribute ("producto") Producto producto, Model model) {
         model.addAttribute("productos", productoService.listAll());
         return "producto";
     }
-	
-	
-	
+		
 	@PostMapping("/addProducto")
 	public String addProducto (@ModelAttribute ("producto") Producto producto){
 		productoService.insert(producto);
-		return "redirect:/";
+		return "redirect:/producto";
 	}	
 	
     @RequestMapping("/show/{id}")
@@ -55,7 +53,7 @@ public class ProductoController {
     @RequestMapping("/delete")
     public String delete(@RequestParam Integer id) {
         productoService.delete(id);
-        return "redirect:/";
+        return "redirect:/producto";
     }
     
     @RequestMapping("/producto_edit/{id}")
@@ -82,7 +80,7 @@ public class ProductoController {
         productoService.insert(producto);
 
         /*return "redirect:/show/" + product.getId();*/
-        return "redirect:/";
+        return "redirect:/producto";
     }
     
 }

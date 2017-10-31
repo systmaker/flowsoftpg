@@ -45,8 +45,7 @@ public class SiembraController {
 						
 		/*model.addAttribute("invernaderos", invernaderoService.listAll());*/
 		/*model.addAttribute("camas", camaService.listAll());*/
-		
-		
+				
 		return "siembra";
 	}
 

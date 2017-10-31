@@ -14,13 +14,13 @@
 		
 		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
 
-		<title>FlowSoft ... Variedades</title>
+		<title>FlowSoft ... Productos</title>
 
 	</head>
 
-	<body class="nav-md">
+	<body class="nav-md">	
 		<div class="container body">
-			<div class="main_container">
+			<div class="main_container">.
 				<div class="col-md-3 left_col">
 					<div class="left_col scroll-view">
 						<div class="navbar nav_title" style="border: 0;">
@@ -121,8 +121,8 @@
 						</div>
 						<!-- /menu footer buttons -->
 					</div>
-				</div>
-
+				</div>		
+				
 				<!-- top navigation -->
 				<div class="top_nav">
 					<div class="nav_menu">
@@ -141,7 +141,7 @@
 					<div class="">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Variedades</h3>
+								<h3>Paises</h3>
 							</div>
 						</div>
 
@@ -151,7 +151,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2>Lista Variedades</h2>
+										<h2>Lista Paises</h2>
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
@@ -159,43 +159,39 @@
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
 										<button type="button" class="btn btn-dark">Buscar</button>
 										
-										<!-- Inicia Tabla -->										
+										<!-- Inicia Tabla -->
 										<div class="table-responsive">
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
 													<tr class="headings">
 														<th class="column-title">Id</th>
-														<th class="column-title">Descripcion</th>
-														<th class="column-title">Producto</th>
-														<th class="column-title">Color</th>
+														<th class="column-title">Código</th>
+														<th class="column-title">Descripción</th>
 														<th class="column-title">Estado</th>
 														<th class="column-title">Opciones</th>
 													</tr>
 												</thead>
 
-												<tbody th:each="variedad :${variedades}">
+												<tbody th:each="pais :${paises}">
 													<tr class="odd pointer">
-														<td class=" "><span th:text="${variedad.id}"></span></td>
-														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.producto.descripcion}"></span></td>
-														<td class=" "><span th:text="${variedad.color.descripcion}"></span></td>
-														<td class=" " th:switch="${variedad.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
+														<td class=" "><span th:text="${pais.id}"></span></td>
+														<td class=" "><span th:text="${pais.codigo}"></span></td>
+														<td class=" "><span th:text="${pais.descripcion}"></span></td>
+														<td class=" " th:switch="${pais.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
-															 
-															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/variedad_edit/' + ${variedad.id}}">Editar</a>	
-															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/variedad_delete/' + ${variedad.id}}">Borrar</a>														
-															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->  
-															   
+															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/pais_edit/' + ${pais.id}}">Editar</a>	
+															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/pais_delete/' + ${pais.id}}">Borrar</a>														
+															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
 														</td>
 													</tr>
 												</tbody>
 											</table>
-										</div>										 
+										</div>
 										<!-- Termina Tabla -->
-										
+
 										<!-- Inicia Modal Crear -->
-										
-										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addVariedad}" th:object="${variedad}" method="post">  
+										 
+										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addPais}" th:object="${pais}" method="post">
 											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
 												<div class="modal-dialog modal-lg">
 													<div class="modal-content">
@@ -203,32 +199,18 @@
 															<button type="button" class="close" data-dismiss="modal">
 																<span aria-hidden="true">×</span>
 															</button>
-															<h4 class="modal-title" id="myModalLabel">Nueva Variedad</h4>
+															<h4 class="modal-title" id="myModalLabel">Nuevo Pais</h4>
 														</div>
 
 														<div class="modal-body">
-															<br />																																
-																											
+															<br />
 															<div class="form-group">
-																<label class="control-label col-md-3 col-sm-3 col-xs-12">Producto <span class="required">*</span></label>
-																<div class="col-md-6 col-sm-6 col-xs-12">									 													
-																	<select class="form-control" th:field="*{producto.id}" required="required">
-																		<option value="">- Seleccione -</option>
-  																		<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Producto</option>
-																	</select>																																											
+																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Código <span class="required">*</span></label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{codigo}" th:required="required" />
 																</div>
-															</div>
-																																																												
-															<div class="form-group">
-																<label class="control-label col-md-3 col-sm-3 col-xs-12">Color <span class="required">*</span></label>
-																<div class="col-md-6 col-sm-6 col-xs-12">									 															
-																	<select class="form-control" th:field="*{color.id}" required="required">
-  																		<option value="">- Seleccione -</option>
-  																		<option th:each="color :${colores}" th:value="${color.id}" th:text="${color.descripcion}">Color</option>
-																	</select>									 
-																</div>
-															</div>																														
-																																																																											
+															</div>															
+															
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
@@ -239,12 +221,10 @@
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
 																<div class="col-md-6 col-sm-6 col-xs-12">
-										
 																	<select class="form-control" th:field="*{estado}">
 																		<option value="AC">Activo</option>
 																		<option value="IN">Inactivo</option>
 																	</select>
-									  
 																</div>
 															</div>
 														</div>
@@ -256,7 +236,7 @@
 													</div>
 												</div>
 											</div>
-										</form>  
+										</form>
 										 
 										<!-- Termina Modal Crear -->																			
 										
