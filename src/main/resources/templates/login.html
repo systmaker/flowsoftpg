@@ -23,13 +23,18 @@
 		<div>
 			<a class="hiddenanchor" id="signup"></a>
 			<a class="hiddenanchor" id="signin"></a>
+			
+
 
 			<div class="login_wrapper">
+
 				<div class="animate form login_form">
 				 
+				 	
 					<section class="login_content">
 						<h1>Login</h1>
 					</section>
+					 
 				 
 						<form action="#" th:action="@{/}" th:object="${usuario}" method="post">
 																				
@@ -54,13 +59,22 @@
 							<br />
 						</form>								
 						
-						<h4 th:text="${msg}"></h4>
+						
 						<!-- <input type="text" th:value="${msg}" />  --> 
 						<!-- <p th:value="${msg}"></p>  -->
 								
 					<section class="login_content">
 							<div>
+								<h1 th:text="${msg}"></h1>
+								
+											<div class="login_wrapper">
+				<img style="width: 100%; display: block;" src="images/logoflowsoft_trans.png" alt="image" />
+			</div>
+								
+								<!-- 
 								<h1><i class="fa fa-refresh"></i>FlowSoft</h1>
+								 -->
+								 <br />
 								<p>©2017 SystMaker. All Rights Reserved.</p>
 							</div>
 					</section>								
