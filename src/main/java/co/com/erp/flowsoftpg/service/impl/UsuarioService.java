@@ -40,4 +40,9 @@ public class UsuarioService implements IUsuarioService {
 		usuarioRepository.delete(id);
 	}
 
+	@Override
+	public Usuario findUsuarioByCodigoAndClave(String codigo, String clave) {
+		return usuarioRepository.findUsuarioByCodigoAndClave(codigo, clave);
+	}
+
 }

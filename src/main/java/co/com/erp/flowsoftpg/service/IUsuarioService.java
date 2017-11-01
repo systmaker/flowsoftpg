@@ -15,5 +15,7 @@ public interface IUsuarioService {
 	void insert (Usuario usuario);
 	
 	void delete (Integer id);
+	
+	Usuario findUsuarioByCodigoAndClave (String codigo, String clave);
 
 }

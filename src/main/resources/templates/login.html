@@ -26,30 +26,51 @@
 
 			<div class="login_wrapper">
 				<div class="animate form login_form">
+				 
 					<section class="login_content">
-						<form action='index.html' id="formaLogin">
-							<h1>Login</h1>
+						<h1>Login</h1>
+					</section>
+				 
+						<form action="#" th:action="@{/}" th:object="${usuario}" method="post">
+																				
 							<div>
-								<input type="text" class="form-control" placeholder="Usuario" th:required="required" />
+								<input id="codigo" name="codigo" type="text" class="form-control" placeholder="Usuario" required="required" th:field="*{codigo}" />
 							</div>
+							
+							<br />
+							
 							<div>
-								<input type="password" class="form-control" placeholder="Contraseña" th:required="required" />
+								<input id="clave" name="clave" type="password" class="form-control" placeholder="Contraseña" required="required" th:field="*{clave}" />
 							</div>
-							<div>
-								<a class="btn btn-default submit">Ingresar</a>
-								<!-- <a class="btn btn-default submit"> <input type="submit" value="Ingresar" name="ingresar" class="btn btn-default submit" /> </a> -->
+							
+							<br />
+							
+							<div>														
+								<!-- <a class="btn btn-default submit">Ingresar</a>  -->
+								<input type="submit" class="form-control" value="Ingresar" name="ingresar" /> 
 							</div>	
 												
 							<div class="clearfix"></div>
 							<br />
+						</form>								
+						
+						<h4 th:text="${msg}"></h4>
+						<!-- <input type="text" th:value="${msg}" />  --> 
+						<!-- <p th:value="${msg}"></p>  -->
 								
+					<section class="login_content">
 							<div>
 								<h1><i class="fa fa-refresh"></i>FlowSoft</h1>
 								<p>©2017 SystMaker. All Rights Reserved.</p>
 							</div>
+					</section>								
+								
 
-						</form>
-					</section>
+
+						
+					
+					
+					
 				</div>
 			</div>
 		</div>
