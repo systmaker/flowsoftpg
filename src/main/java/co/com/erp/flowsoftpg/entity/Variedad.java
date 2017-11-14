@@ -27,6 +27,9 @@ public class Variedad implements Serializable {
 	@Column (name = "descripcion")	
 	private String descripcion;
 	
+	@Column (name = "plantasm2")
+	private Integer plantasm2;
+	
 	@Column (name = "estado")
 	private String estado;
 	
@@ -65,6 +68,14 @@ public class Variedad implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	public Integer getPlantasm2() {
+		return plantasm2;
+	}
+
+	public void setPlantasm2(Integer plantasm2) {
+		this.plantasm2 = plantasm2;
+	}	
 	
 	public Producto getProducto() {		
 		if (producto == null){

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
+		<link href="/build/css/custom.min.css" rel="stylesheet" />
+		
+		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
+
+		<title>FlowSoft ... Creación de Siembras</title>
+
+	</head>
+
+	<body class="nav-md">
+		<div class="container body">
+			<div class="main_container">
+				<div class="col-md-3 left_col">
+					<div class="left_col scroll-view">
+						<div class="navbar nav_title" style="border: 0;">
+							<a href="index.html" class="site_title"><i class="fa fa-refresh"></i> <span>FlowSoft</span></a>
+						</div>
+
+						<!-- menu profile quick info -->
+						<div class="profile clearfix">
+							<div class="profile_info">
+								<span>Bienvenido,</span>
+								<h2>Administrador</h2>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- /menu profile quick info -->
+
+						<br />
+
+						<!-- sidebar menu -->
+						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+							<div class="menu_section">
+								<h3>Produccion</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-cubes"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/'}">Productos</a></li>
+											<li><a th:href="@{'/color'}">Colores</a></li>
+											<li><a th:href="@{'/variedad'}">Variedades</a></li>
+										</ul>
+									</li>
+									<li>
+										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
+											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>
+										</ul>										
+									</li>
+								</ul>
+							</div>
+							
+							<div class="menu_section">
+								<h3>Seguridad</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-unlock-alt"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a href="usuario.html">Usuarios</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="menu_section">
+								<h3>Reportes</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-bar-chart"></i> Consultas <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a href="e_commerce.html">Consultar Siembra</a></li>
+											<li><a href="projects.html">Consultar Proyección</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>							
+						</div>
+						<!-- /sidebar menu -->
+
+						<!-- /menu footer buttons -->
+						<div class="sidebar-footer hidden-small">
+							<a data-toggle="tooltip" data-placement="top" title="Cerrar Sesion" href="login.html"> 
+							<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+						</div>
+						<!-- /menu footer buttons -->
+					</div>
+				</div>
+
+				<!-- top navigation -->
+				<div class="top_nav">
+					<div class="nav_menu">
+						<nav>
+							<div class="nav toggle">
+								<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+							</div>
+							<ul class="nav navbar-nav navbar-right"></ul>
+						</nav>
+					</div>
+				</div>
+				<!-- /top navigation -->
+
+				<!-- page content -->
+				<div class="right_col" role="main">
+					<div class="">
+						<div class="page-title">
+							<div class="title_left">
+								<h3>Siembras</h3>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="x_panel">
+									<div class="x_title">
+										<h2>Creación de Siembras</h2>
+										<div class="clearfix"></div>
+									</div>
+									<div class="x_content">
+									
+									
+									
+										 										 
+										 	
+										 		<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/siembra_add}" th:object="${siembra}" method="get">
+										 		<div class="x_panel">
+										 		<div class="form-group">
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Compañía </label>
+										 			</div>
+										 
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">											 													 												 		
+										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.localizacion.compania.descripcion}" th:required="required" disabled="true"/>									 		
+												 	</div>
+										 	
+										 			 
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Localización </label>
+										 			</div>										 	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">											 													 												 		
+										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.localizacion.descripcion}" th:required="required" disabled="true"/>									 		
+												 	</div>
+												 	
+										 			
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Invernadero </label>
+										 			</div>												 	
+										 	
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="text" id="invernadero" name="invernadero" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.descripcion}" th:required="required" disabled="true"/>	
+										 			</div>
+										 	 
+										 	 		<!--
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<button type="submit" class="btn btn-dark">Consultar</button>
+										 			</div>
+										 			 -->
+										 		</div>
+										 		
+										 		<div class="form-group">
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Nave </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.descripcion}" th:required="required" disabled="true"/>	
+										 			</div>		
+										 			
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Cama </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<!-- <input type="text" id="cama" name="cama" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.id}" th:field="*{cama.id}" th:required="required"/>  -->
+										 				<input type="hidden" name="cama.id" th:value="${cama.id}" />
+										 				<input type="text" id="cama" name="cama" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nrocama}" th:required="required" disabled="true"/>	
+										 			</div>											 						
+										 			
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> M2 Disponibles </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.metros_tot} - ${cama.metros_ocu}" th:required="required" disabled="true"/>	
+										 			</div>	
+										 													 													 										 											 												 		
+										 		</div>
+										 	</div>	
+										 	
+										 	<div class="x_panel">
+										 		<div class="form-group">
+										 		
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Producto </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<!-- <select class="form-control" th:field="*{producto.id}" required="required">  -->
+										 				<select class="form-control" required="required">
+															<option value="">- Seleccione -</option>
+  															<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Producto</option>
+														</select>	
+										 			</div>											 			
+										 			
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Color </label>
+										 			</div>
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+														<select class="form-control" required="required">
+  															<option value="">- Seleccione -</option>
+  															<option th:each="color :${colores}" th:value="${color.id}" th:text="${color.descripcion}">Color</option>
+														</select>
+										 			</div>											 			
+										 			
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Variedad </label>
+										 			</div>				
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+														<select class="form-control" required="required" th:field="*{variedad.id}">
+															<option value="">- Seleccione -</option>
+  															<option th:each="variedad :${variedades}" th:value="${variedad.id}" th:text="${variedad.descripcion}">Variedad</option>
+														</select>										
+																		
+													</div>											 										 														 													 		
+										 		
+										 		</div>
+										 		
+										 		<div class="form-group">
+										 		
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Fecha </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="date" id="fecha" name="fecha" required="required" class="form-control col-md-7 col-xs-12" th:required="required" th:field="*{fecha}" />	
+										 			</div>											 		
+										 		
+										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 				<label> Nro Plantas </label>
+										 			</div>	
+										 			
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="text" id="nroplantas" name="nroplantas" required="required" class="form-control col-md-7 col-xs-12" th:field="*{nroplantas}" th:required="required" />	
+										 			</div>	
+										 			
+										 		
+										 		</div>
+										 		
+										 	</div>
+										 	
+										 	<div class="col-md-8 col-sm-12 col-xs-12 form-group">										 	
+										 		<a class="btn btn-default" type="button" th:href="@{'/producto'}">Cerrar</a>
+												<input type="submit" value="Guardar" class="btn btn-dark" />										 															
+											</div>	
+										 	
+										 </form>								
+																		
+										<br />
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page content -->
+
+				<!-- footer content -->
+				<footer>
+					<div class="pull-right">
+						FlowSoft - Developer By <a href="http://www.systmaker.com">SystMaker</a>
+					</div>
+					<div class="clearfix"></div>
+				</footer>
+				<!-- /footer content -->
+				
+			</div>
+		</div>
+
+		<script src="/vendors/jquery/dist/jquery.min.js"></script>
+		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/vendors/fastclick/lib/fastclick.js"></script>
+		<script src="/vendors/nprogress/nprogress.js"></script>
+		<script src="/build/js/custom.min.js"></script>
+
+	</body>
+</html>

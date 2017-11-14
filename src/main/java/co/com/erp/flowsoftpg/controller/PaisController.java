@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.com.erp.flowsoftpg.entity.Pais;
 import co.com.erp.flowsoftpg.service.IPaisService;
@@ -27,5 +28,11 @@ public class PaisController {
 		paisService.insert(pais);
 		return "redirect:/pais";
 	}	
+	
+    @RequestMapping("/delPais")
+    public String delPais(@RequestParam Integer id) {
+    	paisService.delete(id);
+        return "redirect:/pais";
+    }
 
 }

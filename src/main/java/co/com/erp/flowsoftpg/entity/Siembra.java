@@ -32,7 +32,8 @@ public class Siembra implements Serializable {
 	private Double metros_sem;
 	
 	@Column (name = "fecha")	
-	private Date fecha;
+	/*private Date fecha;*/
+	private String fecha;
 	
 	@Column (name = "estado")	
 	private String estado;
@@ -73,6 +74,7 @@ public class Siembra implements Serializable {
 		this.metros_sem = metros_sem;
 	}
 	
+	/*
 	public Date getFecha() {
 		return fecha;
 	}
@@ -80,6 +82,15 @@ public class Siembra implements Serializable {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	*/
+	
+	public String getFecha() {
+		return fecha;
+	}
+	
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}	
 	
 	public String getEstado() {
 		return estado;

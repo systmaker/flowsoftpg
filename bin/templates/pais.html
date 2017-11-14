@@ -14,7 +14,7 @@
 		
 		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
 
-		<title>FlowSoft ... Productos</title>
+		<title>FlowSoft ... Paises</title>
 
 	</head>
 
@@ -77,11 +77,9 @@
 									</li>
 									<li>
 										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<!-- 
+										<ul class="nav child_menu">											 
 											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
-											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>
-											 -->
+											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>											 
 										</ul>										
 									</li>
 								</ul>
@@ -157,7 +155,7 @@
 									<div class="x_content">
 
 										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
-										<button type="button" class="btn btn-dark">Buscar</button>
+										<button type="button" class="btn btn-dark">Buscar</button>																																																																													
 										
 										<!-- Inicia Tabla -->
 										<div class="table-responsive">
@@ -180,7 +178,15 @@
 														<td class=" " th:switch="${pais.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
 															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/pais_edit/' + ${pais.id}}">Editar</a>	
-															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/pais_delete/' + ${pais.id}}">Borrar</a>														
+															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/pais_delete/' + ${pais.id}}">Borrar</a>
+															<!-- 
+															<form action="delPais">			
+																<a th:href="@{'/delPais/'+${pais.id}}"><span>Delete</span></a>
+																<input type="text" name="id" th:value="${pais.id}" />
+																<input type="submit" value="Eliminar" />
+																<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">Borrar</button>
+															</form>		
+															 -->								
 															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
 														</td>
 													</tr>
@@ -189,8 +195,7 @@
 										</div>
 										<!-- Termina Tabla -->
 
-										<!-- Inicia Modal Crear -->
-										 
+										<!-- Inicia Modal Crear -->										 
 										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addPais}" th:object="${pais}" method="post">
 											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
 												<div class="modal-dialog modal-lg">
@@ -236,9 +241,35 @@
 													</div>
 												</div>
 											</div>
+										</form>										 
+										<!-- Termina Modal Crear -->		
+																				
+										<!-- Ini Modal Eliminar -->
+										<!-- 
+										<form action="delPais">
+											<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+												<div class="modal-dialog modal-sm">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">×</span>
+															</button>
+															<h4 class="modal-title" id="myModalLabel2">Confirmar</h4>
+														</div>
+														<div class="modal-body">
+															<p>Desea Eliminar Este Registro ?</p>
+														</div>
+														<input type="text" name="id" th:value="${pais.id}" />
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+															<button type="submit" class="btn btn-dark">Aceptar</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</form>
-										 
-										<!-- Termina Modal Crear -->																			
+										 -->
+										<!-- Fin Modal Eliminar -->																																																									
 										
 									</div>
 								</div>
@@ -264,7 +295,9 @@
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="/vendors/fastclick/lib/fastclick.js"></script>
 		<script src="/vendors/nprogress/nprogress.js"></script>
-		<script src="/build/js/custom.min.js"></script>
+		<script src="/build/js/custom.min.js"></script>				
+		
+		
 
 	</body>
 </html>

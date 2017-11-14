@@ -166,6 +166,7 @@
 													<tr class="headings">
 														<th class="column-title">Id</th>
 														<th class="column-title">Descripcion</th>
+														<th class="column-title">Plantas M2</th>
 														<th class="column-title">Producto</th>
 														<th class="column-title">Color</th>
 														<th class="column-title">Estado</th>
@@ -177,6 +178,7 @@
 													<tr class="odd pointer">
 														<td class=" "><span th:text="${variedad.id}"></span></td>
 														<td class=" "><span th:text="${variedad.descripcion}"></span></td>
+														<td class=" "><span th:text="${variedad.plantasm2}"></span></td>
 														<td class=" "><span th:text="${variedad.producto.descripcion}"></span></td>
 														<td class=" "><span th:text="${variedad.color.descripcion}"></span></td>
 														<td class=" " th:switch="${variedad.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
@@ -235,6 +237,13 @@
 																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
 																</div>
 															</div>
+															
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Plantas M2 <span class="required">*</span></label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{plantasm2}" th:required="required" />
+																</div>
+															</div>															
 
 															<div class="form-group">
 																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
