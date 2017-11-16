@@ -1,5 +1,9 @@
 package co.com.erp.flowsoftpg.controller;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,28 +97,40 @@ public class SiembraController {
     
     @RequestMapping("/siembra_add")
     public String siembra_add (@ModelAttribute ("siembra") Siembra siembra, Model model){
-    	/*Insertar Siembra*/
-    	siembra.setEstado(Constantes.SIEMBRA_ACTIVA);
-    	    	
+    	
     	Variedad variedad;
     	variedad = variedadService.findById(siembra.getVariedad().getId());
-    	    	   	
-    	siembra.setMetros_sem(siembra.getNroplantas() / variedad.getPlantasm2());
-    	    	
-    	siembraService.insert(siembra);
-    	
-    	/*Actualizar Cama*/
-    	
     	
     	Cama cama;
     	cama = camaService.findById(siembra.getCama().getId());
     	
-    	cama.setMetros_ocu(cama.getMetros_ocu() + siembra.getMetros_sem());
-    	cama.setEstado(Constantes.CAMA_SEMIOCUPADA);
-    	
-    	camaService.update(cama);
-    	    	
-    	return "siembra";
+    	if (variedad.getPlantasm2() != null && variedad.getPlantasm2() != 0){
+        	/*Insertar Siembra*/
+        	siembra.setEstado(Constantes.SIEMBRA_ACTIVA);
+        	
+        	DecimalFormat df = new DecimalFormat("#.00");
+        	
+        	BigDecimal bd = new BigDecimal(siembra.getNroplantas() / variedad.getPlantasm2());
+        	bd = bd.setScale(2, RoundingMode.HALF_UP);
+        	
+        	siembra.setMetros_sem(bd.doubleValue());
+        	
+        	/*siembra.setMetros_sem(siembra.getNroplantas() / variedad.getPlantasm2());*/
+        	    	
+        	siembraService.insert(siembra);
+        	
+        	/*Actualizar Cama*/    	
+        	cama.setMetros_ocu(cama.getMetros_ocu() + siembra.getMetros_sem());
+        	cama.setEstado(Constantes.CAMA_SEMIOCUPADA);
+        	
+        	camaService.update(cama);
+        	    	
+        	return siembra(siembra, model); /*"siembra";*/
+        	
+    	} else {
+    		model.addAttribute("msgvariedad", "Variedad Sin Plantas x M2");
+    		return siembraFind(siembra.getCama().getId(), model, siembra); /*"siembra_find/"+siembra.getCama().getId();*/
+    	}    	    	
     }
 	
 

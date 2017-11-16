@@ -141,7 +141,8 @@
 										 				<label> Compañía </label>
 										 			</div>
 										 
-										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">											 													 												 		
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">	
+										 				<input type="hidden" name="cama.nave.invernadero.localizacion.compania.id" th:value="${cama.nave.invernadero.localizacion.compania.id}" />										 													 												 		
 										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.localizacion.compania.descripcion}" th:required="required" disabled="true"/>									 		
 												 	</div>
 										 	
@@ -150,7 +151,8 @@
 										 				<label> Localización </label>
 										 			</div>										 	
 										 			
-										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">											 													 												 		
+										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">	
+										 				<input type="hidden" name="cama.nave.invernadero.localizacion.id" th:value="${cama.nave.invernadero.localizacion.id}" />										 													 												 		
 										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.localizacion.descripcion}" th:required="required" disabled="true"/>									 		
 												 	</div>
 												 	
@@ -160,6 +162,7 @@
 										 			</div>												 	
 										 	
 										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 				<input type="hidden" name="cama.nave.invernadero.id" th:value="${cama.nave.invernadero.id}" />
 										 				<input type="text" id="invernadero" name="invernadero" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.invernadero.descripcion}" th:required="required" disabled="true"/>	
 										 			</div>
 										 	 
@@ -176,7 +179,8 @@
 										 			</div>	
 										 			
 										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
-										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.descripcion}" th:required="required" disabled="true"/>	
+										 				<input type="hidden" name="cama.nave.id" th:value="${cama.nave.id}" />
+										 				<input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" th:value="${cama.nave.descripcion}" th:required="required" disabled="disabled"/>	
 										 			</div>		
 										 			
 										 			<div class="col-md-1 col-sm-12 col-xs-12 form-group">
@@ -209,7 +213,7 @@
 										 			
 										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
 										 				<!-- <select class="form-control" th:field="*{producto.id}" required="required">  -->
-										 				<select class="form-control" required="required">
+										 				<select class="form-control" required="required" th:field="*{variedad.producto.id}">
 															<option value="">- Seleccione -</option>
   															<option th:each="producto :${productos}" th:value="${producto.id}" th:text="${producto.descripcion}">Producto</option>
 														</select>	
@@ -220,7 +224,7 @@
 										 			</div>
 										 			
 										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
-														<select class="form-control" required="required">
+														<select class="form-control" required="required" th:field="*{variedad.color.id}">
   															<option value="">- Seleccione -</option>
   															<option th:each="color :${colores}" th:value="${color.id}" th:text="${color.descripcion}">Color</option>
 														</select>
@@ -255,16 +259,20 @@
 										 			</div>	
 										 			
 										 			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
-										 				<input type="text" id="nroplantas" name="nroplantas" required="required" class="form-control col-md-7 col-xs-12" th:field="*{nroplantas}" th:required="required" />	
+										 				<input type="number" id="nroplantas" name="nroplantas" required="required" class="form-control col-md-7 col-xs-12" th:field="*{nroplantas}" th:required="required" />	
 										 			</div>	
 										 			
+										 			
+										 			<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+										 				<h3 th:text="${msgvariedad}"></h3>
+										 			</div>											 													 													 			
 										 		
 										 		</div>
 										 		
 										 	</div>
 										 	
 										 	<div class="col-md-8 col-sm-12 col-xs-12 form-group">										 	
-										 		<a class="btn btn-default" type="button" th:href="@{'/producto'}">Cerrar</a>
+										 		<a class="btn btn-default" type="button" th:href="@{'/siembra'}">Cerrar</a>
 												<input type="submit" value="Guardar" class="btn btn-dark" />										 															
 											</div>	
 										 	
