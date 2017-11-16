@@ -30,7 +30,7 @@ public class ColorController {
 	
 	/*Forma 2 de Listar*/
     @RequestMapping("/color")
-    public String color(Model model) {
+    public String color(@ModelAttribute ("color") Color color, Model model) {
         model.addAttribute("colores", colorService.listAll());
         return "color";
     }
