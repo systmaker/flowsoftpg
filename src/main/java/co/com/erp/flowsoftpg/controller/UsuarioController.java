@@ -28,7 +28,7 @@ public class UsuarioController {
 	@RequestMapping("/usuario")
 	public String usuario(@ModelAttribute("usuario") Usuario usuario, Model model){
 		model.addAttribute("usuarios", usuarioService.listAll());
-		return "redirect:/producto";
+		return "redirect:/usuario";
 	}
 	
 	@RequestMapping("/")

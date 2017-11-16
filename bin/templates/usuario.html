@@ -1,10 +1,250 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html lang="en">
+	<head>
 
-</body>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
+		<link href="/build/css/custom.min.css" rel="stylesheet" />
+		
+		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
+
+		<title>FlowSoft ... Usuarios</title>
+
+	</head>
+
+	<body class="nav-md">	
+		<div class="container body">
+			<div class="main_container">.
+				<div class="col-md-3 left_col">
+					<div class="left_col scroll-view">
+						<div class="navbar nav_title" style="border: 0;">
+							<a class="site_title"><i class="fa fa-refresh"></i> <span>FlowSoft</span></a>
+						</div>
+
+						<!-- menu profile quick info -->
+						<div class="profile clearfix">
+							<div class="profile_info">
+								<span>Bienvenido,</span>
+								<h2>Administrador</h2>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- /menu profile quick info -->
+
+						<br />
+
+						<!-- sidebar menu -->
+						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+							<div class="menu_section">
+								<h3>Produccion</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-cubes"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/localizacion'}">Localizaciones</a></li>
+											<li><a th:href="@{'/producto'}">Productos</a></li>
+											<li><a th:href="@{'/color'}">Colores</a></li>
+											<li><a th:href="@{'/variedad'}">Variedades</a></li>
+										</ul>
+									</li>
+									<li>
+										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
+										</ul>										
+									</li>
+								</ul>
+							</div>
+																																			
+							<div class="menu_section">
+								<h3>Comunes</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-language"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/compania'}">Compañías</a></li>
+											<li><a th:href="@{'/pais'}">Paises</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>							
+																																										
+							<div class="menu_section">
+								<h3>Seguridad</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-unlock-alt"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/usuario'}">Usuarios</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="menu_section">
+								<h3>Reportes</h3>
+								<ul class="nav side-menu">
+									<li>
+										<a><i class="fa fa-bar-chart"></i> Consultas <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><a th:href="@{'/siembra_query'}">Consultar Siembra</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>							
+						</div>
+						<!-- /sidebar menu -->
+
+						<!-- /menu footer buttons -->
+						<div class="sidebar-footer hidden-small">
+							<a data-toggle="tooltip" data-placement="top" title="Cerrar Sesion" th:href="@{'/'}"> 
+							<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+						</div>
+						<!-- /menu footer buttons -->
+					</div>
+				</div>		
+				
+				<!-- top navigation -->
+				<div class="top_nav">
+					<div class="nav_menu">
+						<nav>
+							<div class="nav toggle">
+								<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+							</div>
+							<ul class="nav navbar-nav navbar-right"></ul>
+						</nav>
+					</div>
+				</div>
+				<!-- /top navigation -->
+
+				<!-- page content -->
+				<div class="right_col" role="main">
+					<div class="">
+						<div class="page-title">
+							<div class="title_left">
+								<h3>Usuarios</h3>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="x_panel">
+									<div class="x_title">
+										<h2>Lista Usuarios</h2>
+										<div class="clearfix"></div>
+									</div>
+									<div class="x_content">
+
+										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
+										<button type="button" class="btn btn-dark">Buscar</button>
+										
+										<!-- Inicia Tabla -->
+										<div class="table-responsive">
+											<table class="table table-striped jambo_table bulk_action">
+												<thead>
+													<tr class="headings">
+														<th class="column-title">Id</th>
+														<th class="column-title">Descripcion</th>
+														<th class="column-title">Estado</th>
+														<th class="column-title">Opciones</th>
+													</tr>
+												</thead>
+
+												<tbody th:each="usuario :${usuarios}">
+													<tr class="odd pointer">
+														<td class=" "><span th:text="${usuario.id}"></span></td>
+														<td class=" "><span th:text="${usuario.descripcion}"></span></td>
+														<td class=" " th:switch="${usuario.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
+														<td class=" ">
+															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/usuario_edit/' + ${usuario.id}}">Editar</a>	
+															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/usuario_delete/' + ${usuario.id}}">Borrar</a>														
+															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- Termina Tabla -->
+
+										<!-- Inicia Modal Crear -->
+										 <!-- 
+										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addCompania}" th:object="${compania}" method="post">
+											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+												<div class="modal-dialog modal-lg">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">
+																<span aria-hidden="true">×</span>
+															</button>
+															<h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4>
+														</div>
+
+														<div class="modal-body">
+															<br />
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
+																</div>
+															</div>
+
+															<div class="form-group">
+																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
+																<div class="col-md-6 col-sm-6 col-xs-12">
+																
+																	<select class="form-control" th:field="*{estado}">
+																		<option value="AC">Activo</option>
+																		<option value="IN">Inactivo</option>
+																	</select>																	
+																
+																</div>
+															</div>
+														</div>
+														
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+															<input type="submit" value="Guardar" name="guardar" class="btn btn-dark" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+										  -->
+										<!-- Termina Modal Crear -->																			
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page content -->
+
+				<!-- footer content -->
+				<footer>
+					<div class="pull-right">
+						FlowSoft - Developer By <a href="http://www.systmaker.com">SystMaker</a>
+					</div>
+					<div class="clearfix"></div>
+				</footer>
+				<!-- /footer content -->
+				
+			</div>
+		</div>
+
+		<script src="/vendors/jquery/dist/jquery.min.js"></script>
+		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/vendors/fastclick/lib/fastclick.js"></script>
+		<script src="/vendors/nprogress/nprogress.js"></script>
+		<script src="/build/js/custom.min.js"></script>
+
+	</body>
 </html>
