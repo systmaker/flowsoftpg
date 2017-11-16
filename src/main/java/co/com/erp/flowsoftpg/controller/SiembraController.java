@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.com.erp.flowsoftpg.entity.Cama;
-import co.com.erp.flowsoftpg.entity.Producto;
 import co.com.erp.flowsoftpg.entity.Siembra;
 import co.com.erp.flowsoftpg.entity.Variedad;
 import co.com.erp.flowsoftpg.service.ICamaService;

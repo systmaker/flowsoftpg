@@ -17,7 +17,7 @@ public class CompaniaController {
 	
 	@RequestMapping("/compania")
 	public String compania (@ModelAttribute ("compania") Compania compania, Model model){
-		model.addAttribute("compania", companiaService.listAll());
+		model.addAttribute("companias", companiaService.listAll());
 		return "compania";
 	}
 	
