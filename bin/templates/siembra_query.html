@@ -14,13 +14,13 @@
 		
 		<link rel="icon" type="image/png" href="/images/iconoflowsoft.png" />
 
-		<title>FlowSoft ... Compañias</title>
+		<title>FlowSoft ... Consultar Siembras</title>
 
 	</head>
 
-	<body class="nav-md">	
+	<body class="nav-md">
 		<div class="container body">
-			<div class="main_container">.
+			<div class="main_container">
 				<div class="col-md-3 left_col">
 					<div class="left_col scroll-view">
 						<div class="navbar nav_title" style="border: 0;">
@@ -108,8 +108,8 @@
 						</div>
 						<!-- /menu footer buttons -->
 					</div>
-				</div>		
-				
+				</div>
+
 				<!-- top navigation -->
 				<div class="top_nav">
 					<div class="nav_menu">
@@ -128,7 +128,7 @@
 					<div class="">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Compañias</h3>
+								<h3>Siembras</h3>
 							</div>
 						</div>
 
@@ -138,87 +138,80 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2>Lista Compañias</h2>
+										<h2>Consultar Siembras</h2>
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
-
-										<button type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">Crear</button>
-										<button type="button" class="btn btn-dark">Buscar</button>
+										 
+										 <div class="x_panel">
+										 
+										   
+										 <div class="form-group">
+										 <form id="demo-form2" class="form-horizontal form-label-left">
+										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 		<label> Fecha Inicial </label>
+										 	</div>
+										 
+										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">										 		
+												<input type="date" id="fecha" name="fecha" required="required" class="form-control col-md-7 col-xs-12"/>	
+										 	</div>
+										 	
+										 	
+										 	<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+										 		<label> Fecha Final </label>
+										 	</div>										 	
+										 	
+										 	<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+										 		<input type="date" id="fecha" name="fecha" required="required" class="form-control col-md-7 col-xs-12"/>
+										 	</div>										 											 											 	 
+										 	 
+										 	<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+										 		<button type="submit" class="btn btn-dark">Consultar</button>
+										 	</div>
+										</form>										 											 
+										 </div>
+										 
+										 
+										 </div>										 
 										
-										<!-- Inicia Tabla -->
+										<!-- Inicia Tabla -->	
+										 									
 										<div class="table-responsive">
 											<table class="table table-striped jambo_table bulk_action">
 												<thead>
 													<tr class="headings">
-														<th class="column-title">Id</th>
-														<th class="column-title">Descripcion</th>
-														<th class="column-title">Estado</th>
-														<th class="column-title">Opciones</th>
+														<th class="column-title">Compañía</th>
+														<th class="column-title">Localización</th>
+														<th class="column-title">Invernadero</th>
+														<th class="column-title">Nave</th>
+														<th class="column-title">Nro Cama</th>
+														<th class="column-title">Producto</th>
+														<th class="column-title">Color</th>
+														<th class="column-title">Variedad</th>
+														<th class="column-title">Fecha</th>
+														<th class="column-title">Plantas</th>
 													</tr>
 												</thead>
-
-												<tbody th:each="compania :${companias}">
+												
+												<tbody th:each="siembra :${siembras}">
 													<tr class="odd pointer">
-														<td class=" "><span th:text="${compania.id}"></span></td>
-														<td class=" "><span th:text="${compania.descripcion}"></span></td>
-														<td class=" " th:switch="${compania.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
-														<td class=" ">
-															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/compania_edit/' + ${compania.id}}">Editar</a>	
-															<a type="button" class="btn btn-danger btn-xs" th:href="@{'/compania_delete/' + ${compania.id}}">Borrar</a>														
-															<!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg1">Borrar</button>  -->
-														</td>
+														<td class=" "><span th:text="${siembra.cama.nave.invernadero.localizacion.compania.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.cama.nave.invernadero.localizacion.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.cama.nave.invernadero.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.cama.nave.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.cama.nrocama}"></span></td>														
+														<td class=" "><span th:text="${siembra.variedad.producto.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.variedad.color.descripcion}"></span></td>
+														<td class=" "><span th:text="${siembra.variedad.descripcion}"></span></td>														
+														<td class=" "><span th:text="${siembra.fecha}"></span></td>
+														<td class=" "><span th:text="${siembra.nroplantas}"></span></td>																												
 													</tr>
-												</tbody>
+												</tbody>												 
+												
 											</table>
-										</div>
-										<!-- Termina Tabla -->
-
-										<!-- Inicia Modal Crear -->
-										 <!-- 
-										<form id="demo-form2" class="form-horizontal form-label-left" action="#" th:action="@{/addCompania}" th:object="${compania}" method="post">
-											<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-												<div class="modal-dialog modal-lg">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal">
-																<span aria-hidden="true">×</span>
-															</button>
-															<h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4>
-														</div>
-
-														<div class="modal-body">
-															<br />
-															<div class="form-group">
-																<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripción <span class="required">*</span></label>
-																<div class="col-md-6 col-sm-6 col-xs-12">
-																	<input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{descripcion}" th:required="required" />
-																</div>
-															</div>
-
-															<div class="form-group">
-																<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
-																<div class="col-md-6 col-sm-6 col-xs-12">
-																
-																	<select class="form-control" th:field="*{estado}">
-																		<option value="AC">Activo</option>
-																		<option value="IN">Inactivo</option>
-																	</select>																	
-																
-																</div>
-															</div>
-														</div>
-														
-														<div class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-															<input type="submit" value="Guardar" name="guardar" class="btn btn-dark" />
-														</div>
-													</div>
-												</div>
-											</div>
-										</form>
-										  -->
-										<!-- Termina Modal Crear -->																			
+										</div>	
+																			 
+										<!-- Termina Tabla -->																																																
 										
 									</div>
 								</div>
@@ -245,6 +238,14 @@
 		<script src="/vendors/fastclick/lib/fastclick.js"></script>
 		<script src="/vendors/nprogress/nprogress.js"></script>
 		<script src="/build/js/custom.min.js"></script>
+		
+		
+		<script>
+			function showPIIDoc()
+			{
+    			alert('in here');
+			}
+		</script>
 
 	</body>
 </html>

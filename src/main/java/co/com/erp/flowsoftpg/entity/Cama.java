@@ -1,6 +1,8 @@
 package co.com.erp.flowsoftpg.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,8 +48,19 @@ public class Cama implements Serializable {
 	@JoinColumn (name = "idnave")
 	private Nave nave;
 	
+	private Double metros_dis;
+	
 	public Cama (){
 		super();
+	}
+	
+	public Double getMetros_dis(){
+		metros_dis = (getMetros_tot() - getMetros_ocu());
+		
+		BigDecimal bd = new BigDecimal(metros_dis);
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		
+		return bd.doubleValue();
 	}
 	
 	public Integer getId() {
@@ -82,7 +95,7 @@ public class Cama implements Serializable {
 		this.largo = largo;
 	}
 	
-	public Double getMetros_tot() {
+	public Double getMetros_tot() {		
 		return metros_tot;
 	}
 	

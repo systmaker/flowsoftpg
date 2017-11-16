@@ -2,7 +2,6 @@ package co.com.erp.flowsoftpg.controller;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.com.erp.flowsoftpg.entity.Cama;
+import co.com.erp.flowsoftpg.entity.Producto;
 import co.com.erp.flowsoftpg.entity.Siembra;
 import co.com.erp.flowsoftpg.entity.Variedad;
 import co.com.erp.flowsoftpg.service.ICamaService;
@@ -69,6 +69,12 @@ public class SiembraController {
 		return "siembra";
 	}
 	
+    @RequestMapping("/siembra_query")
+    public String siembra_query(@ModelAttribute ("siembra") Siembra siembra, Model model) {
+        model.addAttribute("siembras", siembraService.listAll());
+        return "siembra_query";
+    }	
+	
 	@PostMapping("/createSiembra")
 	public String createSiembra(@ModelAttribute("siembra") Siembra siembra, Model model){
 		siembraService.insert(siembra);
@@ -105,28 +111,30 @@ public class SiembraController {
     	cama = camaService.findById(siembra.getCama().getId());
     	
     	if (variedad.getPlantasm2() != null && variedad.getPlantasm2() != 0){
-        	/*Insertar Siembra*/
-        	siembra.setEstado(Constantes.SIEMBRA_ACTIVA);
+    		if (cama.getMetros_dis() >= (siembra.getNroplantas() / variedad.getPlantasm2())){    			    		
+    			/*Insertar Siembra*/
+    			siembra.setEstado(Constantes.SIEMBRA_ACTIVA);        	
         	
-        	DecimalFormat df = new DecimalFormat("#.00");
+    			BigDecimal bd = new BigDecimal(siembra.getNroplantas() / variedad.getPlantasm2());
+    			bd = bd.setScale(2, RoundingMode.HALF_UP);
         	
-        	BigDecimal bd = new BigDecimal(siembra.getNroplantas() / variedad.getPlantasm2());
-        	bd = bd.setScale(2, RoundingMode.HALF_UP);
+    			siembra.setMetros_sem(bd.doubleValue());
         	
-        	siembra.setMetros_sem(bd.doubleValue());
-        	
-        	/*siembra.setMetros_sem(siembra.getNroplantas() / variedad.getPlantasm2());*/
+    			/*siembra.setMetros_sem(siembra.getNroplantas() / variedad.getPlantasm2());*/
         	    	
-        	siembraService.insert(siembra);
+    			siembraService.insert(siembra);
         	
-        	/*Actualizar Cama*/    	
-        	cama.setMetros_ocu(cama.getMetros_ocu() + siembra.getMetros_sem());
-        	cama.setEstado(Constantes.CAMA_SEMIOCUPADA);
+    			/*Actualizar Cama*/    	
+    			cama.setMetros_ocu(cama.getMetros_ocu() + siembra.getMetros_sem());
+    			cama.setEstado(Constantes.CAMA_SEMIOCUPADA);
         	
-        	camaService.update(cama);
+    			camaService.update(cama);
         	    	
-        	return siembra(siembra, model); /*"siembra";*/
-        	
+    			return siembra(siembra, model); /*"siembra";*/
+    		} else{
+    			model.addAttribute("msgvariedad", "M2 a Sembrar Excede La Capacidad");
+        		return siembraFind(siembra.getCama().getId(), model, siembra); /*"siembra_find/"+siembra.getCama().getId();*/        	
+    		}
     	} else {
     		model.addAttribute("msgvariedad", "Variedad Sin Plantas x M2");
     		return siembraFind(siembra.getCama().getId(), model, siembra); /*"siembra_find/"+siembra.getCama().getId();*/

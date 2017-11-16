@@ -24,7 +24,7 @@
 				<div class="col-md-3 left_col">
 					<div class="left_col scroll-view">
 						<div class="navbar nav_title" style="border: 0;">
-							<a href="index.html" class="site_title"><i class="fa fa-refresh"></i> <span>FlowSoft</span></a>
+							<a class="site_title"><i class="fa fa-refresh"></i> <span>FlowSoft</span></a>
 						</div>
 
 						<!-- menu profile quick info -->
@@ -57,7 +57,6 @@
 										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
-											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>
 										</ul>										
 									</li>
 								</ul>
@@ -67,20 +66,11 @@
 								<h3>Comunes</h3>
 								<ul class="nav side-menu">
 									<li>
-										<a><i class="fa fa-cubes"></i> Maestros <span class="fa fa-chevron-down"></span></a>
+										<a><i class="fa fa-language"></i> Maestros <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li><a th:href="@{'/compania'}">Compañías</a></li>
 											<li><a th:href="@{'/pais'}">Paises</a></li>
-											<li><a th:href="@{'/departamento'}">Departamentos</a></li>
-											<li><a th:href="@{'/ciudad'}">Ciudades</a></li>
 										</ul>
-									</li>
-									<li>
-										<a><i class="fa fa-recycle"></i> Procesos <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">											 
-											<li><a th:href="@{'/siembra'}">Crear Siembras</a></li>
-											<li><a th:href="@{'/proyeccion'}">Generar Proyección</a></li>											 
-										</ul>										
 									</li>
 								</ul>
 							</div>							
@@ -103,8 +93,7 @@
 									<li>
 										<a><i class="fa fa-bar-chart"></i> Consultas <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="e_commerce.html">Consultar Siembra</a></li>
-											<li><a href="projects.html">Consultar Proyección</a></li>
+											<li><a th:href="@{'/siembra_query'}">Consultar Siembra</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -114,7 +103,7 @@
 
 						<!-- /menu footer buttons -->
 						<div class="sidebar-footer hidden-small">
-							<a data-toggle="tooltip" data-placement="top" title="Cerrar Sesion" href="login.html"> 
+							<a data-toggle="tooltip" data-placement="top" title="Cerrar Sesion" th:href="@{'/'}"> 
 							<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
 						</div>
 						<!-- /menu footer buttons -->
