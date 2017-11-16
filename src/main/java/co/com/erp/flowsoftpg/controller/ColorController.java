@@ -35,7 +35,7 @@ public class ColorController {
         return "color";
     }
 	
-	@PostMapping("/addProducto")
+	@PostMapping("/addColor")
 	public String addColor (@ModelAttribute ("color") Color color){
 		colorService.insert(color);
 		return "redirect:/color";
