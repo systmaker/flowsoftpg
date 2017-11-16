@@ -3,8 +3,12 @@ package co.com.erp.flowsoftpg.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.com.erp.flowsoftpg.entity.Color;
+import co.com.erp.flowsoftpg.entity.Producto;
 import co.com.erp.flowsoftpg.service.IColorService;
 
 @Controller
@@ -31,4 +35,11 @@ public class ColorController {
         return "color";
     }
 	
+	@PostMapping("/addProducto")
+	public String addColor (@ModelAttribute ("color") Color color){
+		colorService.insert(color);
+		return "redirect:/color";
+	}	
+    
+    
 }
