@@ -152,7 +152,7 @@
 												<thead>
 													<tr class="headings">
 														<th class="column-title">Id</th>
-														<th class="column-title">Descripcion</th>
+														<th class="column-title">Nombre</th>
 														<th class="column-title">Estado</th>
 														<th class="column-title">Opciones</th>
 													</tr>
@@ -161,7 +161,7 @@
 												<tbody th:each="usuario :${usuarios}">
 													<tr class="odd pointer">
 														<td class=" "><span th:text="${usuario.id}"></span></td>
-														<td class=" "><span th:text="${usuario.descripcion}"></span></td>
+														<td class=" "><span th:text="${usuario.nombre}"></span></td>
 														<td class=" " th:switch="${usuario.estado}"><span th:case="'AC'">Activo</span><span th:case="'IN'">Inactivo</span></td>
 														<td class=" ">
 															<a type="button" class="btn btn-dark btn-xs" th:href="@{'/usuario_edit/' + ${usuario.id}}">Editar</a>	
